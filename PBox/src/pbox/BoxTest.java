@@ -61,7 +61,7 @@ class BoxTest {
 	void testSetLength() {
 		Box box4=new Box(4,7,2);
 		box4.setLength(2);
-		assertEquals(2,box4.GetLength(),0.001);
+		assertEquals(2,box4.getWidth(),0.001);
 	}
 
 	@Test

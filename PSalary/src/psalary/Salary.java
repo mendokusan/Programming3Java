@@ -4,7 +4,7 @@ public class Salary {
 	private double gross;
 	public Salary(double gross)
 	{
-		
+		this.gross=gross;
 	}
 	public double getGross()
 	{
@@ -12,7 +12,7 @@ public class Salary {
 	}
 	public void setGross(double gross)
 	{
-		
+		this.gross=gross;
 	}
 	public double getTax()
 	{
