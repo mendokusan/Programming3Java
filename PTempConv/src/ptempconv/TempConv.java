@@ -22,19 +22,20 @@ public class TempConv {
 	}
 	public void setCell(double celsius)
 	{
-		
+		this.cel=cel;
 	}
 	public void setFah(double fahrenheit)
 	{
+		this.fah=fah;
 		
 	}
 	public void setKel(double kelvin)
 	{
-		
+		this.kel=kel;
 	}
-	public String toString()
+	public String toString(String temp1)
 	{
-		return "hi";
+		return temp1;
 	}
 
 	

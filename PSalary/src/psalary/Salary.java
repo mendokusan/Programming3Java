@@ -32,7 +32,7 @@ public class Salary {
 		}
 		else if(gross>14000)
 		{
-			tax=(gross-1400)*0.175
+			tax=(gross-14000)*0.175
 					+14000*0.105;
 		}
 		else if(gross<14001)
