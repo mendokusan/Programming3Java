@@ -1,5 +1,7 @@
 package pfriend;
 
+import java.time.LocalDate;
+
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -34,30 +36,61 @@ public Friend(String firstName,String lastName,int year,int month,int day,Gender
 	this.email=email;
 	this.relationshipStatus=relationshipStatus;
 }
-public void getAge()
+public int getAge()
 {
 	int age=LocalDate.now().getYear()-birthDate.getYear();
-	if()
-	
-	
-}
-public void TheSame()
-{
-	boolean status=true;
-	if(firstName==lastName)
+	LocalDate currentDate=LocalDate.now();
+			
+	if(currentDate.getDayOfMonth()>birthDate.getDayOfMonth())
 	{
-		status=false;
+		age--;
 	}
 	
+	else if(currentDate.getDayOfMonth()==birthDate.getDayOfMonth())
+	{
+		if(currentDate.getDayOfYear()>birthDate.getDayOfYear())
+		{
+			age--;
+		}
+	}
+	return age;
+}
+
+public boolean TheSame(Friend f1)
+{
+	boolean status=false;
+	if(firstName.equals(f1.firstName)&&lastName.equals(f1.lastName))
+	{
+		status=true;
+	}
+	return status;
 }
 
 public String toString()
-{
-	if(firstName==null)
-	{
-		
-	}
-	return "Name:"+firstName+" "+lastName+"DOB:"+birthDate+" "+"Gender:"+gender+""+"Home Town"+homeTown+" "+"Email:"+email+" "+"Relationship Status"+relationshipStatus+" "+"Date:"+date;
+{  
+    StringBuilder result=new StringBuilder(firstName+" "+lastName+" "+birthDate+" "+gender+" "+homeTown+" "+email+" "+relationshipStatus);
+    if(birthDate.equals(null))
+    {
+        result.append(birthDate+" ");
+    }
+    
+    if(gender!=null)
+    {
+        result.append(" "+gender+" ");
+    }
+    if(homeTown!=null)
+    {
+        result.append(homeTown+" ");
+    }
+    if(email!=null)
+    {
+        result.append(email+" ");
+    }
+    if(relationshipStatus!=null)
+    {
+        result.append(relationshipStatus+" ");
+    }
+    return result.toString();
 }
 
 }
