@@ -30,8 +30,17 @@ class FriendTest {
 
 	@Test
 	void testGetAge() {
-		Friend person=new Friend("Erika","Namba",2000,8,15);
+		Friend person=new Friend("Erika","Namba",2000,9,20);
 		assertEquals(19,person.getAge());
+		
+		Friend person1=new Friend("Erika","Namba",2000,8,20);
+		assertEquals(19,person1.getAge());
+		
+		Friend person2=new Friend("Erika","Namba",2000,3,13);
+		assertEquals(19,person1.getAge());
+		
+		Friend person9=new Friend("Erika","Namba",2000,3,13);
+		assertEquals(19,person1.getAge());
 	}
 
 	@Test
