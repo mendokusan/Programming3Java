@@ -1,11 +1,11 @@
 package pfriend;
 
 import java.time.LocalDate;
-
-import java.util.Date;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.Period;
+//import java.util.Date;
+//import java.time.LocalDate;
+//import java.util.Calendar;
+//import java.util.GregorianCalendar;
 
 public class Friend {
 	private String firstName;
@@ -16,11 +16,13 @@ public class Friend {
 	private String email;
 	private Relationship relationshipStatus;
 	private LocalDate date=LocalDate.now();
+	private LocalDate dateCreated;
 
 public Friend(String firstName,String lastName)
 {
 	this.firstName=firstName;
 	this.lastName=lastName;
+	dateCreated=LocalDate.now();
 }
 
 public Friend(String firstName,String lastName,int year,int month,int day)
@@ -38,21 +40,8 @@ public Friend(String firstName,String lastName,int year,int month,int day,Gender
 }
 public int getAge()
 {
-	int age=LocalDate.now().getYear()-birthDate.getYear();
 	LocalDate currentDate=LocalDate.now();
-			
-	if(currentDate.getDayOfMonth()>birthDate.getDayOfMonth())
-	{
-		age--;
-	}
-	
-	else if(currentDate.getDayOfMonth()==birthDate.getDayOfMonth())
-	{
-		if(currentDate.getDayOfYear()>birthDate.getDayOfYear())
-		{
-			age--;
-		}
-	}
+	int age=Period.between(birthDate, currentDate).getYears();
 	return age;
 }
 
@@ -66,17 +55,82 @@ public boolean TheSame(Friend f1)
 	return status;
 }
 
+
+public String getfirstName()
+{
+	
+	return firstName;
+}
+public void setfirstName(String firstName)
+{
+	this.firstName=firstName;
+}
+public String getlastName()
+{
+	
+	return lastName;
+}
+public void setLastName(String lastName)
+{
+	this.lastName=lastName;
+}
+public LocalDate getBirthDate()
+{
+	return birthDate;
+}
+public void setBirthDate(LocalDate birthDate)
+{
+	this.birthDate=birthDate;
+}
+public Gender getGender()
+{
+return gender;
+}
+public void setGender(Gender gender)
+{
+	this.gender=gender;
+}
+public String getHomeTown()
+{
+	return homeTown;
+}
+public void setHomeTown(String homeTown)
+{
+	this.homeTown=homeTown;
+}
+
+public String getEmail()
+{
+	return email;
+}
+public void setEmail(String email)
+{
+	this.email=email;
+}
+public Relationship getRelationshipStatus()
+{
+	return relationshipStatus;
+}
+public void setRelationshipStatus(Relationship relationshipStatus)
+{
+	this.relationshipStatus=relationshipStatus;
+}
+
+public LocalDate getDateCreated()
+{
+	return dateCreated;
+}
 public String toString()
 {  
-    StringBuilder result=new StringBuilder(firstName+" "+lastName+" "+birthDate+" "+gender+" "+homeTown+" "+email+" "+relationshipStatus);
-    if(birthDate.equals(null))
+    StringBuilder result=new StringBuilder(firstName+" "+lastName);
+    if(birthDate!=null)
     {
-        result.append(birthDate+" ");
+        result.append(" "+birthDate.toString()+" ");
     }
     
     if(gender!=null)
     {
-        result.append(" "+gender+" ");
+        result.append(gender.toString()+" ");
     }
     if(homeTown!=null)
     {
@@ -88,7 +142,7 @@ public String toString()
     }
     if(relationshipStatus!=null)
     {
-        result.append(relationshipStatus+" ");
+        result.append(relationshipStatus.toString());
     }
     return result.toString();
 }
