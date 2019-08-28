@@ -2,6 +2,8 @@ package pfriend;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -78,14 +80,15 @@ class FriendTest2 {
 	@Test
 	void testGetBirthDate() {
 		Friend person=new Friend("Erika","Nama",1999,7,25,Gender.Female,"Isfahan","nambe1@student.op.ac.nz",Relationship.Single);
-		assertEquals("1999-07-25 ",person.getBirthDate());
+		assertEquals("1999-07-25",person.getBirthDate().toString());
 	}
 
 	@Test
 	void testSetBirthDate() {
-		Friend person=new Friend("Sara","Namba");
-		person.setLastName("Namba");
-		assertEquals("Namba",person.getlastName());
+		Friend person=new Friend("Erika","Nama");
+		LocalDate temp = LocalDate.of(1999, 07, 25);
+		person.setBirthDate(temp);
+		assertEquals(temp,person.getBirthDate());
 	}
 
 	@Test
@@ -142,7 +145,8 @@ class FriendTest2 {
 
 	@Test
 	void testGetDateCreated() {
-		
+		Friend person=new Friend("Erika","Nama",1999,7,25,Gender.Female,"Isfahan","nambe1@student.op.ac.nz",Relationship.Single);
+		assertEquals("2019-08-22",person.getDateCreated().toString());
 	}
 
 	@Test
