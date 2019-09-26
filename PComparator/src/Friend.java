@@ -7,7 +7,7 @@ import java.time.Period;
 //import java.util.Calendar;
 //import java.util.GregorianCalendar;
 
-public class Friend implements Comparable<Friend> {
+public class Friend {
 	private String firstName;
 	private String lastName;
 	private LocalDate birthDate;
@@ -147,19 +147,5 @@ public String toString()
     return result.toString();
 }
 
-@Override
-public int compareTo(Friend f1) {
-	// TODO Auto-generated method stub
-	if(this.getlastName().equals(f1.getlastName()))
-		return this.firstName.compareTo(f1.getfirstName());
-		else
-		{
-			return this.lastName.compareTo(f1.getlastName());
-		}
-	
-	}
-	
 }
-
-
 

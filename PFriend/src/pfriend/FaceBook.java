@@ -4,7 +4,7 @@ import java.util.*;
 
 public class FaceBook {
 	private Friend friend;
-	Friend[]imaginaryFriends=new Friend[5000];
+	//Friend[]imaginaryFriends=new Friend[5000];
 	ArrayList<Friend> manybots=new ArrayList<Friend>();
 	String Identifier;
 
@@ -63,14 +63,26 @@ public class FaceBook {
 		}
 		return under21;
 	}
-	public void RemoveFriend(Friend f1)
+	public void RemoveFriend(Friend f1,Friend f2)
 	{
-		boolean match;
-		int indexNumber;
+		boolean match=false;
+		int indexNumber=0;
+		//String name;
 		for(Friend item:manybots)
-		{
-			indexNumber=manybots.indexOf(f1);
+		{			
+			if(manybots.contains(f2))
+			{
+				indexNumber=manybots.indexOf(item);
+				match=true;
+			}
+			
+			
 		}
+		if(match=true)
+		{
+			manybots.remove(indexNumber);
+		}
+		
 		//get index of Friend friend and store in index number
 		//Check is friend,isTheSame(f1)
 		//
